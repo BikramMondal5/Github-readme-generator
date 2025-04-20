@@ -37,9 +37,9 @@ A simple, light-weight, client side tool that allows users to generate professio
 1. Enter your project details including project name, description, and key features
 2. Select the technologies used in your project from the visual tech stack selector
 3. Fill in optional details like installation steps, usage instructions, and license
-4. Click "Generate README" to create your professional README file
+4. Click `Generate README` to create your professional README file
 5. Copy the markdown to your clipboard
-6. Paste the content into your GitHub repository's README.md file
+6. Paste the content into your GitHub repository's `README.md` file
 
 ## 🤝 Contribution
 
