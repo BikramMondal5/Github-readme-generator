@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub README Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo"></div>
+            <h1>GitHub README Generator</h1>
+        </header>
+
+        <p class="subtitle">Create professional GitHub README files with AI assistance. Powered by Google Gemini.</p>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <div class="input-section">
+            <h2>Project Details</h2>
+
+            <div class="form-group">
+                <label for="projectName">Project Name</label>
+                <input type="text" id="projectName" placeholder="E.g., Weather App, Task Manager, etc.">
+            </div>
+
+            <div class="form-group">
+                <label for="description">One-line Description</label>
+                <input type="text" id="description" placeholder="A short overview of your project">
+            </div>
+
+            <div class="form-group">
+                <label for="keyFeatures">Key Features (optional)</label>
+                <textarea id="keyFeatures"
+                    placeholder="List the main features of your project (one per line)"></textarea>
+            </div>
+
+            <div class="tech-stack-section">
+                <h3>Tech Stack</h3>
+
+                <div class="form-group">
+                    <label for="frontendTech">Frontend</label>
+                    <select id="frontendTech" multiple>
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="TypeScript">TypeScript</option>
+                        <option value="React">React</option>
+                        <option value="Angular">Angular</option>
+                        <option value="Vue.js">Vue.js</option>
+                        <option value="Svelte">Svelte</option>
+                        <option value="Next.js">Next.js</option>
+                        <option value="Bootstrap">Bootstrap</option>
+                        <option value="Tailwind CSS">Tailwind CSS</option>
+                        <option value="Material UI">Material UI</option>
+                    </select>
+                    <p class="helper-text">Hold Ctrl/Cmd to select multiple</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="backendTech">Backend</label>
+                    <select id="backendTech" multiple>
+                        <option value="Node.js">Node.js</option>
+                        <option value="Express">Express</option>
+                        <option value="Python">Python</option>
+                        <option value="Django">Django</option>
+                        <option value="Flask">Flask</option>
+                        <option value="Ruby">Ruby</option>
+                        <option value="Ruby on Rails">Ruby on Rails</option>
+                        <option value="PHP">PHP</option>
+                        <option value="Laravel">Laravel</option>
+                        <option value="Java">Java</option>
+                        <option value="Spring Boot">Spring Boot</option>
+                        <option value=".NET">.NET</option>
+                        <option value="Go">Go</option>
+                    </select>
+                    <p class="helper-text">Hold Ctrl/Cmd to select multiple</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="databaseTech">Database</label>
+                    <select id="databaseTech" multiple>
+                        <option value="MongoDB">MongoDB</option>
+                        <option value="MySQL">MySQL</option>
+                        <option value="PostgreSQL">PostgreSQL</option>
+                        <option value="SQLite">SQLite</option>
+                        <option value="Redis">Redis</option>
+                        <option value="Firebase">Firebase</option>
+                        <option value="Supabase">Supabase</option>
+                        <option value="Oracle">Oracle</option>
+                        <option value="DynamoDB">DynamoDB</option>
+                        <option value="Cassandra">Cassandra</option>
+                    </select>
+                    <p class="helper-text">Hold Ctrl/Cmd to select multiple</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="blockchainTech">Blockchain (optional)</label>
+                    <select id="blockchainTech" multiple>
+                        <option value="Ethereum">Ethereum</option>
+                        <option value="Solidity">Solidity</option>
+                        <option value="Web3.js">Web3.js</option>
+                        <option value="Hardhat">Hardhat</option>
+                        <option value="Truffle">Truffle</option>
+                        <option value="Binance Smart Chain">Binance Smart Chain</option>
+                        <option value="Solana">Solana</option>
+                        <option value="Polkadot">Polkadot</option>
+                        <option value="Chainlink">Chainlink</option>
+                        <option value="IPFS">IPFS</option>
+                    </select>
+                    <p class="helper-text">Hold Ctrl/Cmd to select multiple</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="mlTech">Machine Learning (optional)</label>
+                    <select id="mlTech" multiple>
+                        <option value="TensorFlow">TensorFlow</option>
+                        <option value="PyTorch">PyTorch</option>
+                        <option value="Scikit-learn">Scikit-learn</option>
+                        <option value="Keras">Keras</option>
+                        <option value="Pandas">Pandas</option>
+                        <option value="NumPy">NumPy</option>
+                        <option value="OpenCV">OpenCV</option>
+                        <option value="Matplotlib">Matplotlib</option>
+                        <option value="NLTK">NLTK</option>
+                        <option value="Hugging Face">Hugging Face</option>
+                    </select>
+                    <p class="helper-text">Hold Ctrl/Cmd to select multiple</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="otherTech">Other Technologies (optional)</label>
+                    <input type="text" id="otherTech" placeholder="E.g., Docker, AWS, Git, etc. (comma separated)">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="installation">Installation Steps (optional)</label>
+                <textarea id="installation"
+                    placeholder="List the steps needed to install your project. Leave empty for standard git clone instructions."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="usage">Usage Instructions (optional)</label>
+                <textarea id="usage"
+                    placeholder="Explain how to use your project. List steps or commands needed to run it."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="repoUrl">Repository URL (optional)</label>
+                <input type="text" id="repoUrl" placeholder="E.g., https://github.com/username/project-name">
+            </div>
+
+            <div class="form-group">
+                <label for="license">License</label>
+                <select id="license">
+                    <option value="">Select a license</option>
+                    <option value="MIT">MIT License</option>
+                    <option value="Apache-2.0">Apache License 2.0</option>
+                    <option value="GPL-3.0">GNU General Public License v3.0</option>
+                    <option value="BSD-3-Clause">BSD 3-Clause License</option>
+                    <option value="BSD-2-Clause">BSD 2-Clause License</option>
+                    <option value="LGPL-3.0">GNU Lesser General Public License v3.0</option>
+                    <option value="MPL-2.0">Mozilla Public License 2.0</option>
+                    <option value="AGPL-3.0">GNU Affero General Public License v3.0</option>
+                    <option value="Unlicense">The Unlicense</option>
+                    <option value="ISC">ISC License</option>
+                    <option value="Custom">Custom License</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="contributors">Contributors (optional)</label>
+                <textarea id="contributors"
+                    placeholder="List the contributors to your project (one per line)"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="includeScreenshot">Include Screenshot Section</label>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="includeScreenshot" checked>
+                    <span>Add a screenshot placeholder</span>
+                </div>
+            </div>
+
+            <button id="generateBtn" class="btn">
+                <span class="btn-icon">✨</span> Generate README
+            </button>
+        </div>
+
+        <div class="loader" id="loader">
+            <div class="spinner"></div>
+            <p>Creating your README...</p>
+        </div>
+
+        <div class="output-section" id="outputSection">
+            <h2>Your Generated README</h2>
+
+            <div class="tab-container">
+                <div class="tabs">
+                    <button class="tab-btn active" id="rawTab">Raw Markdown</button>
+                    <button class="tab-btn" id="previewTab">Preview</button>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="rawPane">
+                        <pre><code id="markdownContent"></code></pre>
+                    </div>
+                    <div class="tab-pane" id="previewPane"></div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="copyBtn" class="btn">
+                    <span class="btn-icon">📋</span> Copy Markdown
+                </button>
+                <button id="regenerateBtn" class="btn btn-secondary">
+                    <span class="btn-icon">🔄</span> Regenerate
+                </button>
+                <button id="editBtn" class="btn btn-secondary">
+                    <span class="btn-icon">✏️</span> Edit Content
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="api-key-modal" id="apiKeyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>API Key Required</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <p>To use this GitHub README Generator, you need to provide your Google Gemini API key.</p>
+            <div class="form-group">
+                <label for="apiKey">Google Gemini API Key</label>
+                <input type="password" id="apiKey" placeholder="Enter your API key">
+            </div>
+            <p class="api-note">
+                Your API key is stored locally in your browser and never sent to our servers.
+            </p>
+            <button id="saveApiKey" class="btn">Save API Key</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
