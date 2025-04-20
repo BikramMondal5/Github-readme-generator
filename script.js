@@ -19,7 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const rawTab = document.getElementById('rawTab');
     const previewTab = document.getElementById('previewTab');
     const rawPane = document.getElementById('rawPane');
-    const previewPane2 = document.getElementById('previewPane');
+
+    // Tech stack selectors
+    const techIconContainers = document.querySelectorAll('.tech-icons');
+
+    // Initialize tech stack selection
+    techIconContainers.forEach(container => {
+        container.querySelectorAll('.tech-icon').forEach(icon => {
+            icon.addEventListener('click', () => {
+                icon.classList.toggle('selected');
+            });
+        });
+    });
 
     // Initialize marked.js for markdown rendering
     marked.setOptions({
@@ -57,13 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
         rawTab.classList.add('active');
         previewTab.classList.remove('active');
         rawPane.classList.add('active');
-        previewPane2.classList.remove('active');
+        previewPane.classList.remove('active');
     });
 
     previewTab.addEventListener('click', () => {
         previewTab.classList.add('active');
         rawTab.classList.remove('active');
-        previewPane2.classList.add('active');
+        previewPane.classList.add('active');
         rawPane.classList.remove('active');
 
         // Render the markdown content
@@ -92,9 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Function to get selected values from multi-select
-    function getMultiSelectValues(selectElement) {
-        return Array.from(selectElement.selectedOptions).map(option => option.value);
+    // Function to get selected tech icons
+    function getSelectedTechIcons(containerId) {
+        const container = document.getElementById(containerId);
+        const selectedIcons = container.querySelectorAll('.tech-icon.selected');
+        return Array.from(selectedIcons).map(icon => icon.getAttribute('data-tech'));
     }
 
     async function generateReadme() {
@@ -102,11 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectName = document.getElementById('projectName').value;
         const description = document.getElementById('description').value;
         const keyFeatures = document.getElementById('keyFeatures').value;
-        const frontendTech = getMultiSelectValues(document.getElementById('frontendTech'));
-        const backendTech = getMultiSelectValues(document.getElementById('backendTech'));
-        const databaseTech = getMultiSelectValues(document.getElementById('databaseTech'));
-        const blockchainTech = getMultiSelectValues(document.getElementById('blockchainTech'));
-        const mlTech = getMultiSelectValues(document.getElementById('mlTech'));
+        const frontendTech = getSelectedTechIcons('frontendTechIcons');
+        const backendTech = getSelectedTechIcons('backendTechIcons');
+        const databaseTech = getSelectedTechIcons('databaseTechIcons');
+        const blockchainTech = getSelectedTechIcons('blockchainTechIcons');
+        const mlTech = getSelectedTechIcons('mlTechIcons');
         const otherTech = document.getElementById('otherTech').value;
         const installation = document.getElementById('installation').value;
         const usage = document.getElementById('usage').value;
@@ -172,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Switch to Raw tab initially
             rawTab.click();
 
+            // Show output section
             outputSection.classList.add('visible');
 
             // Scroll to result
@@ -318,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return text;
         } catch (error) {
             console.error('API Error:', error);
-            if (error.message.includes('API key')) {
+            if (error.message && error.message.includes('API key')) {
                 localStorage.removeItem('geminiApiKey');
                 apiKeyModal.classList.add('visible');
                 throw new Error('Invalid API key. Please enter a valid Google Gemini API key.');

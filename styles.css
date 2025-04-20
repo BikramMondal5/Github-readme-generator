@@ -115,8 +115,8 @@ select {
     transition: border 0.3s;
 }
 
-select[multiple] {
-    height: 120px;
+select {
+    height: auto;
 }
 
 input:focus,
@@ -148,6 +148,52 @@ textarea {
 .checkbox-option input {
     width: auto;
     margin-right: 10px;
+}
+
+/* Tech icons grid */
+.tech-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tech-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: var(--secondary);
+    text-align: center;
+    height: 80px;
+}
+
+.tech-icon i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.tech-icon span {
+    font-size: 12px;
+}
+
+.tech-icon:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tech-icon.selected {
+    background-color: rgba(46, 160, 67, 0.1);
+    border-color: var(--primary);
+}
+
+.tech-icon.selected i,
+.tech-icon.selected span {
+    color: var(--primary);
 }
 
 .btn {
@@ -280,6 +326,10 @@ textarea {
     color: var(--header);
 }
 
+#previewPane h1:first-child {
+    margin-top: 0;
+}
+
 #previewPane h1 {
     font-size: 28px;
     border-bottom: 1px solid var(--border);
@@ -345,6 +395,30 @@ textarea {
     margin: 10px 0;
     border-radius: 6px;
     border: 1px solid var(--border);
+}
+
+#previewPane blockquote {
+    padding: 0 16px;
+    color: var(--text-light);
+    border-left: 4px solid var(--border);
+    margin-bottom: 16px;
+}
+
+#previewPane table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+#previewPane table th, 
+#previewPane table td {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+}
+
+#previewPane table th {
+    background-color: rgba(255, 255, 255, 0.05);
+    font-weight: 600;
 }
 
 .action-buttons {
@@ -455,6 +529,10 @@ textarea {
 @media (max-width: 768px) {
     .container {
         padding: 20px;
+    }
+
+    .tech-icons {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
     }
 
     .action-buttons {
