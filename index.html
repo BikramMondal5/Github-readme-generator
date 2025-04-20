@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub README Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Add Markdown parser library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+    <!-- Add Font Awesome for tech stack icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </head>
 
 <body>
@@ -43,93 +47,253 @@
                 <h3>Tech Stack</h3>
 
                 <div class="form-group">
-                    <label for="frontendTech">Frontend</label>
-                    <select id="frontendTech" multiple>
-                        <option value="HTML">HTML</option>
-                        <option value="CSS">CSS</option>
-                        <option value="JavaScript">JavaScript</option>
-                        <option value="TypeScript">TypeScript</option>
-                        <option value="React">React</option>
-                        <option value="Angular">Angular</option>
-                        <option value="Vue.js">Vue.js</option>
-                        <option value="Svelte">Svelte</option>
-                        <option value="Next.js">Next.js</option>
-                        <option value="Bootstrap">Bootstrap</option>
-                        <option value="Tailwind CSS">Tailwind CSS</option>
-                        <option value="Material UI">Material UI</option>
-                    </select>
-                    <p class="helper-text">Hold Ctrl/Cmd to select multiple</p>
+                    <label>Frontend</label>
+                    <div class="tech-icons" id="frontendTechIcons">
+                        <div class="tech-icon" data-tech="HTML">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML</span>
+                        </div>
+                        <div class="tech-icon" data-tech="CSS">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS</span>
+                        </div>
+                        <div class="tech-icon" data-tech="JavaScript">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-icon" data-tech="TypeScript">
+                            <i class="fab fa-js"></i>
+                            <span>TypeScript</span>
+                        </div>
+                        <div class="tech-icon" data-tech="React">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Angular">
+                            <i class="fab fa-angular"></i>
+                            <span>Angular</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Vue.js">
+                            <i class="fab fa-vuejs"></i>
+                            <span>Vue.js</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Svelte">
+                            <i class="fas fa-code"></i>
+                            <span>Svelte</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Next.js">
+                            <i class="fab fa-react"></i>
+                            <span>Next.js</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Bootstrap">
+                            <i class="fab fa-bootstrap"></i>
+                            <span>Bootstrap</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Tailwind CSS">
+                            <i class="fab fa-css3"></i>
+                            <span>Tailwind</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Material UI">
+                            <i class="fas fa-palette"></i>
+                            <span>Material UI</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="backendTech">Backend</label>
-                    <select id="backendTech" multiple>
-                        <option value="Node.js">Node.js</option>
-                        <option value="Express">Express</option>
-                        <option value="Python">Python</option>
-                        <option value="Django">Django</option>
-                        <option value="Flask">Flask</option>
-                        <option value="Ruby">Ruby</option>
-                        <option value="Ruby on Rails">Ruby on Rails</option>
-                        <option value="PHP">PHP</option>
-                        <option value="Laravel">Laravel</option>
-                        <option value="Java">Java</option>
-                        <option value="Spring Boot">Spring Boot</option>
-                        <option value=".NET">.NET</option>
-                        <option value="Go">Go</option>
-                    </select>
-                    <p class="helper-text">Hold Ctrl/Cmd to select multiple</p>
+                    <label>Backend</label>
+                    <div class="tech-icons" id="backendTechIcons">
+                        <div class="tech-icon" data-tech="Node.js">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Express">
+                            <i class="fab fa-node-js"></i>
+                            <span>Express</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Python">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Django">
+                            <i class="fab fa-python"></i>
+                            <span>Django</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Flask">
+                            <i class="fab fa-python"></i>
+                            <span>Flask</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Ruby">
+                            <i class="fas fa-gem"></i>
+                            <span>Ruby</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Ruby on Rails">
+                            <i class="fas fa-train"></i>
+                            <span>Rails</span>
+                        </div>
+                        <div class="tech-icon" data-tech="PHP">
+                            <i class="fab fa-php"></i>
+                            <span>PHP</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Laravel">
+                            <i class="fab fa-laravel"></i>
+                            <span>Laravel</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Java">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Spring Boot">
+                            <i class="fas fa-leaf"></i>
+                            <span>Spring</span>
+                        </div>
+                        <div class="tech-icon" data-tech=".NET">
+                            <i class="fab fa-microsoft"></i>
+                            <span>.NET</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Go">
+                            <i class="fas fa-code"></i>
+                            <span>Go</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="databaseTech">Database</label>
-                    <select id="databaseTech" multiple>
-                        <option value="MongoDB">MongoDB</option>
-                        <option value="MySQL">MySQL</option>
-                        <option value="PostgreSQL">PostgreSQL</option>
-                        <option value="SQLite">SQLite</option>
-                        <option value="Redis">Redis</option>
-                        <option value="Firebase">Firebase</option>
-                        <option value="Supabase">Supabase</option>
-                        <option value="Oracle">Oracle</option>
-                        <option value="DynamoDB">DynamoDB</option>
-                        <option value="Cassandra">Cassandra</option>
-                    </select>
-                    <p class="helper-text">Hold Ctrl/Cmd to select multiple</p>
+                    <label>Database</label>
+                    <div class="tech-icons" id="databaseTechIcons">
+                        <div class="tech-icon" data-tech="MongoDB">
+                            <i class="fas fa-database"></i>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="tech-icon" data-tech="MySQL">
+                            <i class="fas fa-database"></i>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="tech-icon" data-tech="PostgreSQL">
+                            <i class="fas fa-database"></i>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="tech-icon" data-tech="SQLite">
+                            <i class="fas fa-database"></i>
+                            <span>SQLite</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Redis">
+                            <i class="fas fa-database"></i>
+                            <span>Redis</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Firebase">
+                            <i class="fas fa-fire"></i>
+                            <span>Firebase</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Supabase">
+                            <i class="fas fa-database"></i>
+                            <span>Supabase</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Oracle">
+                            <i class="fas fa-database"></i>
+                            <span>Oracle</span>
+                        </div>
+                        <div class="tech-icon" data-tech="DynamoDB">
+                            <i class="fab fa-aws"></i>
+                            <span>DynamoDB</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Cassandra">
+                            <i class="fas fa-database"></i>
+                            <span>Cassandra</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="blockchainTech">Blockchain (optional)</label>
-                    <select id="blockchainTech" multiple>
-                        <option value="Ethereum">Ethereum</option>
-                        <option value="Solidity">Solidity</option>
-                        <option value="Web3.js">Web3.js</option>
-                        <option value="Hardhat">Hardhat</option>
-                        <option value="Truffle">Truffle</option>
-                        <option value="Binance Smart Chain">Binance Smart Chain</option>
-                        <option value="Solana">Solana</option>
-                        <option value="Polkadot">Polkadot</option>
-                        <option value="Chainlink">Chainlink</option>
-                        <option value="IPFS">IPFS</option>
-                    </select>
-                    <p class="helper-text">Hold Ctrl/Cmd to select multiple</p>
+                    <label>Blockchain (optional)</label>
+                    <div class="tech-icons" id="blockchainTechIcons">
+                        <div class="tech-icon" data-tech="Ethereum">
+                            <i class="fab fa-ethereum"></i>
+                            <span>Ethereum</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Solidity">
+                            <i class="fas fa-file-code"></i>
+                            <span>Solidity</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Web3.js">
+                            <i class="fas fa-globe"></i>
+                            <span>Web3.js</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Hardhat">
+                            <i class="fas fa-hard-hat"></i>
+                            <span>Hardhat</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Truffle">
+                            <i class="fas fa-box"></i>
+                            <span>Truffle</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Binance Smart Chain">
+                            <i class="fas fa-coins"></i>
+                            <span>BSC</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Solana">
+                            <i class="fas fa-sun"></i>
+                            <span>Solana</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Polkadot">
+                            <i class="fas fa-dot-circle"></i>
+                            <span>Polkadot</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Chainlink">
+                            <i class="fas fa-link"></i>
+                            <span>Chainlink</span>
+                        </div>
+                        <div class="tech-icon" data-tech="IPFS">
+                            <i class="fas fa-folder"></i>
+                            <span>IPFS</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="mlTech">Machine Learning (optional)</label>
-                    <select id="mlTech" multiple>
-                        <option value="TensorFlow">TensorFlow</option>
-                        <option value="PyTorch">PyTorch</option>
-                        <option value="Scikit-learn">Scikit-learn</option>
-                        <option value="Keras">Keras</option>
-                        <option value="Pandas">Pandas</option>
-                        <option value="NumPy">NumPy</option>
-                        <option value="OpenCV">OpenCV</option>
-                        <option value="Matplotlib">Matplotlib</option>
-                        <option value="NLTK">NLTK</option>
-                        <option value="Hugging Face">Hugging Face</option>
-                    </select>
-                    <p class="helper-text">Hold Ctrl/Cmd to select multiple</p>
+                    <label>Machine Learning (optional)</label>
+                    <div class="tech-icons" id="mlTechIcons">
+                        <div class="tech-icon" data-tech="TensorFlow">
+                            <i class="fas fa-brain"></i>
+                            <span>TensorFlow</span>
+                        </div>
+                        <div class="tech-icon" data-tech="PyTorch">
+                            <i class="fas fa-fire"></i>
+                            <span>PyTorch</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Scikit-learn">
+                            <i class="fas fa-cogs"></i>
+                            <span>Scikit-learn</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Keras">
+                            <i class="fas fa-brain"></i>
+                            <span>Keras</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Pandas">
+                            <i class="fas fa-table"></i>
+                            <span>Pandas</span>
+                        </div>
+                        <div class="tech-icon" data-tech="NumPy">
+                            <i class="fas fa-calculator"></i>
+                            <span>NumPy</span>
+                        </div>
+                        <div class="tech-icon" data-tech="OpenCV">
+                            <i class="fas fa-eye"></i>
+                            <span>OpenCV</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Matplotlib">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Matplotlib</span>
+                        </div>
+                        <div class="tech-icon" data-tech="NLTK">
+                            <i class="fas fa-language"></i>
+                            <span>NLTK</span>
+                        </div>
+                        <div class="tech-icon" data-tech="Hugging Face">
+                            <i class="fas fa-robot"></i>
+                            <span>Hugging Face</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -246,7 +410,6 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js" type="module"></script>
 </body>
 
