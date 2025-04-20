@@ -6,7 +6,6 @@ A simple, light-weight, client side tool that allows users to generate professio
 
 - 🧠 **AI-Powered Content Generation:** Create professional READMEs with Google Gemini API
 - 💻 **Tech Stack Selection:** Visual selection of technologies used in your project
-- 👓 **Live Preview:** See how your README will look on GitHub in real-time
 - 📋 **Markdown Export:** Copy your README directly to clipboard for easy implementation
 - 🎨 **Customizable Templates:** Control what sections appear in your README
 - ✨ **User-friendly Interface:** Clean, GitHub-themed UI for a familiar experience
