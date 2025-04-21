@@ -45,11 +45,10 @@ header {
 }
 
 .logo {
-    width: 40px;
-    height: 40px;
-    background-image: url('https://github.githubassets.com/assets/GitHub-Mark-Light-64px-53861a0b3449.png');
+    width: 50px;
+    height: 50px;
+    background-image: url('https://assets-v2.lottiefiles.com/a/6ae30608-1152-11ee-a832-8bf47b1739dd/KdwHDJSqNs.gif');
     background-size: cover;
-    background-position: center;
     border-radius: 50%;
     margin-right: 16px;
 }
